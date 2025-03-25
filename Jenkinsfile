@@ -7,7 +7,7 @@ pipeline
 	environment
 	{
 		appUser = "test"
-		appName = "python-docker-test"
+		appName = "cloud-docker-test"
 		appVersion = "0.0.1"
 		buildScript = 'echo "Building..."'
 		deployScript = 'echo "Deploying..."'
