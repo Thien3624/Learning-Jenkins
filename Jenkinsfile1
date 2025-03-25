@@ -11,7 +11,7 @@ pipeline
 		appVersion = "0.0.1"
 		buildScript = "python3 hello.py"
 		deployScript = 'echo "Deploying..."'
-		logScript = 'echo "Checking logs..."'
+		logScript = 'python3 --version'
 	}
 	stages
 	{
