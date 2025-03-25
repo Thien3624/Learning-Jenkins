@@ -16,13 +16,24 @@ pipeline
 	stages {
         stage('Build') {
             steps {
-                script {
-                    docker.image('python:3.10-alpine').inside {
-                        sh "${logScript}" 
-                        sh 'echo "doing build stuff.."'
-                    }
+                sh(script: '''${logScript}''', label: "build" )
+                sh 'echo "doing build stuff.."'
                 }
             }
         }
+	stage('Deploy')
+	{
+	    steps {
+	    	sh(script: '''${deployScript}''', label: "deploy")
+		sh '''echo "doing deploy stuff.."'''
+	     }
+	}
+	stage('Check_logs')
+	{
+	    steps {
+		sh(script: '''${logScript}''', label: "check logs")
+		sh '''echo "doing check logs stuff.."'''
+	    }
+	}
     }
 }
