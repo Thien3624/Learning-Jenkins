@@ -2,14 +2,13 @@ pipeline
 {
 	agent
 	{
-		label 'docker-agent-test-nodejs'
+		label 'docker-agent-test'
 	}
 	environment
 	{
 		appUser = "test"
 		appName = "node-docker-test"
 		appVersion = "0.0.1"
-    checkScrip
 		buildScript = "node app.js"
 		deployScript = 'echo "Deploying..."'
 		logScript = 'node --version'
