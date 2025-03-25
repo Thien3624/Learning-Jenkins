@@ -22,5 +22,19 @@ pipeline
 				sh '''echo "doing build stuff.."'''
 			}
 		}
+		stage('Deploy')
+		{
+			steps {
+				sh(script: '''${deployScript}''', label: "deploy")
+				sh '''echo "doing deploy stuff.."'''
+			}
+		}
+		stage('Check_logs')
+		{
+			steps {
+				sh(script: '''${logScript}''', label: "check logs")
+				sh '''echo "doing check logs stuff.."'''
+			}
+		}
 	}
 }
