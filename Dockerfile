@@ -1,4 +1,3 @@
-FROM jenkins/agent:alpine-jdk11
-USER root
-RUN apk add --no-cache python3 py3-pip
-USER Jenkins
+FROM node:16-alpine
+
+RUN apk add -U git curl
