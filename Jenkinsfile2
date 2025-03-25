@@ -19,7 +19,7 @@ pipeline
 		stage('Build')
 		{
 			steps {
-				sh(script: '''$(buildScript)''', label: "build")
+				sh(script: '''${buildScript}''', label: "build")
 				sh '''echo "doing build stuff.."'''
 			}
 		}
