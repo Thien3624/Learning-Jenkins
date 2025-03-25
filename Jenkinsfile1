@@ -2,7 +2,7 @@ pipeline
 {
 	agent
 	{
-		label 'docker-agent-test'
+		label 'docker-agent-test-python'
 	}
 	environment
 	{
