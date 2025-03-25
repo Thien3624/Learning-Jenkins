@@ -13,17 +13,16 @@ pipeline
 		deployScript = 'echo "Deploying..."'
 		logScript = 'python3 --version'
 	}
-	stages
-	{
-		stage('Build')
-		{
-			steps {
-				sh(script:  docker.image('python:3.10-alpine').inside 
-				{
-					'''${logScript}'''
-				}, label: "build")
-				sh '''echo "doing build stuff.."'''
-			}
-		}
-	}
+	stages {
+        stage('Build') {
+            steps {
+                script {
+                    docker.image('python:3.10-alpine').inside {
+                        sh "${logScript}" 
+                        sh 'echo "doing build stuff.."'
+                    }
+                }
+            }
+        }
+    }
 }
